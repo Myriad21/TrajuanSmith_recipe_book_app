@@ -13,7 +13,7 @@ final List<Recipe> sampleRecipes = [
   ),
   Recipe(
     name: 'Creamy Pasta',
-    imagePath: 'assets/images/pasta.jpg',
+    imagePath: 'assets/images/creamy.webp',
     ingredients: ['200g pasta', '1 tbsp olive oil','2 cloves garlic','1 cup cream','Salt + pepper','Parmesan (optional)'],
     instructions:
         '1) Boil pasta until al dente.\n'
@@ -35,7 +35,7 @@ final List<Recipe> sampleRecipes = [
   ),
   Recipe(
     name: 'Simple Salad',
-    imagePath: 'assets/images/salad.jpg',
+    imagePath: 'assets/images/salad.avif',
     ingredients: ['Mixed greens', 'Cherry tomatoes', 'Cucumber', 'Olive oil', 'Lemon juice', 'Salt + pepper'],
     instructions:
         '1) Chop vegetables.\n'
