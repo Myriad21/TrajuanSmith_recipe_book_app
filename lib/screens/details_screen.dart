@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_book_app/models/recipe.dart';
+import '../models/recipe.dart';
 
 class DetailsScreen extends StatelessWidget {
   final Recipe recipe;
@@ -13,9 +13,38 @@ class DetailsScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Hero image
-            Image.asset(recipe.imagePath, height: 220, width: double.infinity, fit: BoxFit.cover),
-            // Name, Ingredients, Instructions…
+
+            // Still gotta add a 'hero'
+            Image.asset(
+              recipe.imagePath,
+              height: 220,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(recipe.name, style: Theme.of(context).textTheme.headlineSmall),
+                  const SizedBox(height: 16),
+
+                  Text('Ingredients', style: Theme.of(context).textTheme.titleMedium),
+                  const SizedBox(height: 8),
+                  
+                  ...recipe.ingredients.map((i) => Padding(
+                        padding: const EdgeInsets.only(bottom: 6),
+                        child: Text('• $i'),
+                      )),
+
+                  const SizedBox(height: 16),
+                  Text('Instructions', style: Theme.of(context).textTheme.titleMedium),
+                  
+                  const SizedBox(height: 8),
+                  Text(recipe.instructions),
+                ],
+              ),
+            ),
           ],
         ),
       ),
