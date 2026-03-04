@@ -21,6 +21,8 @@ class DetailsScreen extends StatelessWidget {
               width: double.infinity,
               fit: BoxFit.cover,
             ),
+
+            // Name, Ingredients, and Instructions
             Padding(
               padding: const EdgeInsets.all(16),
               child: Column(
@@ -39,7 +41,7 @@ class DetailsScreen extends StatelessWidget {
 
                   const SizedBox(height: 16),
                   Text('Instructions', style: Theme.of(context).textTheme.titleMedium),
-                  
+
                   const SizedBox(height: 8),
                   Text(recipe.instructions),
                 ],
