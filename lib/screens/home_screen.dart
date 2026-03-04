@@ -14,26 +14,50 @@ class HomeScreen extends StatelessWidget {
         itemBuilder: (context, index) {
           final recipe = sampleRecipes[index];
 
-          return Card(
-            margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-            child: ListTile(
-              leading: Image.asset(
-                recipe.imagePath,
-                width: 56,
-                height: 56,
-                fit: BoxFit.cover,
-              ),
-              title: Text(recipe.name),
-              trailing: const Icon(Icons.chevron_right),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => DetailsScreen(recipe: recipe),
+          return GestureDetector(
+            child: Card(
+              elevation: 4,
+              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ClipRRect(
+                    borderRadius: const BorderRadius.vertical(
+                      top: Radius.circular(16),
+                    ),
+                    child: Hero(
+                      tag: recipe.name,
+                      child: Image.asset(
+                        recipe.imagePath,
+                        height: 180,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                      ),
+                    )
                   ),
-                );
-              },
+                  Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Text(
+                      recipe.name,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => DetailsScreen(recipe: recipe),
+                ),
+              );
+            },
           );
         },
       ),
