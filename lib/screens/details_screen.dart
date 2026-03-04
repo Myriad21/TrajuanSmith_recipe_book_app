@@ -15,11 +15,14 @@ class DetailsScreen extends StatelessWidget {
           children: [
 
             // Still gotta add a 'hero'
-            Image.asset(
-              recipe.imagePath,
-              height: 220,
-              width: double.infinity,
-              fit: BoxFit.cover,
+            Hero(
+              tag: recipe.name,
+              child: Image.asset(
+                recipe.imagePath,
+                height: 250,
+                width: double.infinity,
+                fit: BoxFit.cover,
+              ),
             ),
 
             // Name, Ingredients, and Instructions
@@ -28,7 +31,7 @@ class DetailsScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(recipe.name, style: Theme.of(context).textTheme.headlineSmall),
+                  Text('Details', style: Theme.of(context).textTheme.headlineSmall),
                   const SizedBox(height: 16),
 
                   Text('Ingredients', style: Theme.of(context).textTheme.titleMedium),
